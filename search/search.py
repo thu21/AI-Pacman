@@ -96,7 +96,7 @@ def depthFirstSearch(problem):
         return []
     # push the start section into  empty list   
    
-    stack.push((start,[]),0) 
+    stack.push((start,[])) 
    # print (start)
 
     while not stack.isEmpty():
@@ -158,7 +158,7 @@ def breadthFirstSearch(problem):
 
         if succ:
             for elem in succ:
-                if elem[0] not in visited :
+                if elem[0] not in visited and elem[0] not in (state[0] for state in queueXY.list):
                     #print elem[0]
                     #print elem[1]
                     newPath = path + [elem[1]] 
@@ -170,7 +170,7 @@ def uniformCostSearch(problem):
     "*** YOUR CODE HERE ***"
  
   
-    queueXY = PriorityQueue.PriorityQueue()
+    queueXY = util.PriorityQueue()
 
     visited = [] # Visited states
     path = [] # Every state keeps it's path from the starting state
